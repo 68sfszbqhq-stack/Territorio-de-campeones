@@ -3,37 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elecciones Facultad de Cultura Física</title>
+    <title>Elecciones Facultad de Cultura Física - Territorio de Campeones</title>
     <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #f4f4f4; }
-        h1 { color: #333; }
-        .contenedor { max-width: 600px; margin: auto; padding: 20px; }
-        .boton-planilla {
+        /* --- ESTILOS AVANZADOS PARA LA PÁGINA DE INICIO --- */
+
+        /* --- 1. Variables de Tema y Diseño Global --- */
+        :root {
+            --color-fondo: #121212;
+            --color-dorado-principal: #D4AF37;
+            --color-dorado-secundario: #B8860B;
+            --color-texto-base: rgba(255, 255, 255, 0.87);
+            --fondo-tarjeta: #1E1E1E;
+            --radio-borde: 12px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--color-fondo);
+            color: var(--color-texto-base);
+            text-align: center;
+            overflow: hidden; /* Evita barras de scroll innecesarias */
+        }
+
+        /* --- 2. Contenedor Principal con Efecto de Fondo --- */
+        .main-container {
+            position: relative;
+            z-index: 2;
+            background-color: var(--fondo-tarjeta);
+            padding: 50px 40px;
+            border-radius: var(--radio-borde);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 700px;
+            width: 90%;
+        }
+
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: linear-gradient(-45deg, #1a1a1a, #2c2c2c, #121212, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 3. Títulos y Textos --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-dorado-principal);
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* --- 4. Botones de Navegación Estilizados --- */
+        .navigation-links a {
             display: block;
-            background-color: #005a9c; /* Color institucional BUAP aproximado */
-            color: white;
-            padding: 20px;
+            background-color: transparent;
+            color: var(--color-dorado-principal);
+            padding: 18px 25px;
             margin: 15px 0;
             text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 2px solid var(--color-dorado-principal);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
-        .boton-planilla:hover {
-            background-color: #003f6c;
+        
+        .navigation-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--color-dorado-principal);
+            transition: width 0.4s ease;
+            z-index: -1;
         }
+
+        .navigation-links a:hover {
+            color: var(--color-fondo);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+        
+        .navigation-links a:hover::before {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="contenedor">
-        <h1>Elecciones 2025</h1>
-        <p>Conoce las propuestas de las planillas para la Facultad de Cultura Física.</p>
-        <p>Selecciona la elección que te interesa consultar:</p>
+    <div id="background-animation"></div>
 
-        <a href="consejo-alumnos.html" class="boton-planilla">Consejo de Unidad (Alumnos)</a>
-        <a href="consejo-universitario.html" class="boton-planilla">Consejo Universitario</a>
-        <a href="direccion-facultad.html" class="boton-planilla">Dirección de la Facultad</a>
+    <div class="main-container">
+        <h1>Elecciones 2025</h1>
+        <p>Plataforma de propuestas para la Facultad de Cultura Física.</p>
+        
+        <div class="navigation-links">
+            <a href="consejo-alumnos.html">Consejo de Unidad (Alumnos)</a>
+            <a href="consejo-universitario.html">Consejo Universitario</a>
+            <a href="direccion-facultad.html">Dirección de la Facultad</a>
+        </div>
     </div>
 
 </body>
